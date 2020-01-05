@@ -17,7 +17,7 @@ namespace RCalculator
             m_total = 0;
 
             // get the list of #
-            calcNum = inpNnum.Split(',');
+            calcNum = inpNnum.Split( new char[] { ',', '\n'});
 
             // Initialize inputNum array
             int[] inputNum = new int[calcNum.Length];
@@ -39,7 +39,6 @@ namespace RCalculator
                     // Add operation
                     Calculator_Add(inputNum[i]);
                 }
-
             }
         }
         public int total
@@ -71,6 +70,9 @@ namespace RCalculator
             Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("1,2,3,4,5,6,7,8,9,10,11,12 ");
+            Console.WriteLine("Total: {0}", cc.total);
+
+            cc.Input_Num("1\n2,3");
             Console.WriteLine("Total: {0}", cc.total);
         }
     }
