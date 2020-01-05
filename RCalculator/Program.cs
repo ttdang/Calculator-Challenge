@@ -4,24 +4,23 @@ namespace RCalculator
 {
     public class CalculatorC
     {
-        public int m_total = 0;
+        public int m_total;
 
         public CalculatorC() {}
 
         public void Input_Num(string inpNnum)
         {
             string[] calcNum;
-            int[] inputNum = new int[2];
             int result;
+
+            // Initialize
+            m_total = 0;
 
             // get the list of #
             calcNum = inpNnum.Split(',');
 
-            // Validation: Only 2 numbers allows
-            if (calcNum.Length > 2)
-            {
-                throw new ArgumentOutOfRangeException(nameof(calcNum), "The Calculator only support a maximum of 2 numbers");
-            }
+            // Initialize inputNum array
+            int[] inputNum = new int[calcNum.Length];
 
             // Validate user inputs
             for (int i = 0; i <= calcNum.Length - 1; i++)
@@ -37,21 +36,19 @@ namespace RCalculator
                 else
                 {
                     inputNum[i] = Convert.ToInt32(calcNum[i]);
+                    // Add operation
+                    Calculator_Add(inputNum[i]);
                 }
 
             }
-
-            // Add operation
-            Calculator_Add(inputNum);
-
         }
         public int total
         {
             get { return m_total; }
         }
-        public void Calculator_Add (int[] inputNum)
+        public void Calculator_Add (int inputNum)
         {
-          m_total   = inputNum[0] + inputNum[1];
+          m_total   = m_total + inputNum;
         }
         static void Main(string[] args)
         {
@@ -73,6 +70,8 @@ namespace RCalculator
             cc.Input_Num("5,yht");
             Console.WriteLine("Total: {0}", cc.total);
 
+            cc.Input_Num("1,2,3,4,5,6,7,8,9,10,11,12 ");
+            Console.WriteLine("Total: {0}", cc.total);
         }
     }
 }
