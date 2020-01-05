@@ -1,0 +1,11 @@
+C:\Users\TT\Source\Repos\RCalculator\bin\Debug\netcoreapp3.1\RCalculator.exe
+C:\Users\TT\Source\Repos\RCalculator\bin\Debug\netcoreapp3.1\RCalculator.deps.json
+C:\Users\TT\Source\Repos\RCalculator\bin\Debug\netcoreapp3.1\RCalculator.runtimeconfig.json
+C:\Users\TT\Source\Repos\RCalculator\bin\Debug\netcoreapp3.1\RCalculator.runtimeconfig.dev.json
+C:\Users\TT\Source\Repos\RCalculator\bin\Debug\netcoreapp3.1\RCalculator.dll
+C:\Users\TT\Source\Repos\RCalculator\bin\Debug\netcoreapp3.1\RCalculator.pdb
+C:\Users\TT\Source\Repos\RCalculator\obj\Debug\netcoreapp3.1\RCalculator.csprojAssemblyReference.cache
+C:\Users\TT\Source\Repos\RCalculator\obj\Debug\netcoreapp3.1\RCalculator.AssemblyInfoInputs.cache
+C:\Users\TT\Source\Repos\RCalculator\obj\Debug\netcoreapp3.1\RCalculator.AssemblyInfo.cs
+C:\Users\TT\Source\Repos\RCalculator\obj\Debug\netcoreapp3.1\RCalculator.dll
+C:\Users\TT\Source\Repos\RCalculator\obj\Debug\netcoreapp3.1\RCalculator.pdb
