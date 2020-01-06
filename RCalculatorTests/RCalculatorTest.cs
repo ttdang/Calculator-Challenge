@@ -35,7 +35,7 @@ namespace RCalculatorTests
         [TestMethod]
         public void Neg_num()
         {
-            rc.Input_Num("4,-3");
+            rc.Input_Num("4,3");
         }
 
         [TestMethod]
@@ -48,6 +48,12 @@ namespace RCalculatorTests
         public void Alternate_Delimiter()
         {
             rc.Input_Num("1,2\n3");
+        }
+
+        [TestMethod]
+        public void No_Negative_Numbers()
+        {
+            rc.Input_Num("1,2,3,4,-5,6,7,8,-9,10,11,-12,13,14,15");
         }
     }
 }

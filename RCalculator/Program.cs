@@ -11,12 +11,13 @@ namespace RCalculator
         public void Input_Num(string inpNnum)
         {
             string[] calcNum;
+            String invalidNum = string.Empty;
             int result;
 
             // Initialize
             m_total = 0;
 
-            // get the list of #
+            // get the list of # separate by "," and/or "\n"
             calcNum = inpNnum.Split( new char[] { ',', '\n'});
 
             // Initialize inputNum array
@@ -35,11 +36,35 @@ namespace RCalculator
                 }
                 else
                 {
+                    // Get the input #
                     inputNum[i] = Convert.ToInt32(calcNum[i]);
-                    // Add operation
-                    Calculator_Add(inputNum[i]);
+
+                    // Gather all negative numbers provided
+                    if (inputNum[i] < 0)
+                    {
+                        if (invalidNum == string.Empty)
+                        {
+                            invalidNum = calcNum[i];
+                        }
+                        else
+                        {
+                            invalidNum = invalidNum + "," + calcNum[i];
+                        }
+                    }
+                    else
+                    {
+                        // Add operation
+                        Calculator_Add(inputNum[i]);
+                    }                        
                 }
             }
+
+            // throw an exception that includes all of the negative numbers provided
+            if (invalidNum != string.Empty)
+            {
+                throw new ArgumentOutOfRangeException(invalidNum + " No negative number(s) allowed!");
+            }
+
         }
         public int total
         {
@@ -60,7 +85,7 @@ namespace RCalculator
             cc.Input_Num ("20");
             Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num("4,-3");
+            cc.Input_Num("4,3");
             Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("1,5000");
@@ -69,7 +94,7 @@ namespace RCalculator
             cc.Input_Num("5,yht");
             Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num("1,2,3,4,5,6,7,8,9,10,11,12 ");
+            cc.Input_Num("1,2,3,-4,5,6,-7,8,9,10,-11,12 ");
             Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("1\n2,3");
