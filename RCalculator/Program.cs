@@ -51,10 +51,14 @@ namespace RCalculator
                             invalidNum = invalidNum + "," + calcNum[i];
                         }
                     }
-                    else
+                    else 
                     {
-                        // Add operation
-                        Calculator_Add(inputNum[i]);
+                        // Skip number that greater than 1000
+                        if (inputNum[i] <= 1000)
+                        {
+                            // Add operation
+                            Calculator_Add(inputNum[i]);
+                        }
                     }                        
                 }
             }
@@ -85,7 +89,7 @@ namespace RCalculator
             cc.Input_Num ("20");
             Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num("4,3");
+            cc.Input_Num("4,1000");
             Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("1,5000");

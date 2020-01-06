@@ -35,7 +35,7 @@ namespace RCalculatorTests
         [TestMethod]
         public void Neg_num()
         {
-            rc.Input_Num("4,3");
+            rc.Input_Num("4,1000");
         }
 
         [TestMethod]
