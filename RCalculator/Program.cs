@@ -13,15 +13,14 @@ namespace RCalculator
         {
             string[] calcNum;
             String invalidNum = string.Empty;
-            string pattern = @"[//#***\[\],\n]";
+            string pattern = @"[//#***!!\r9r\[\],\n]";
             int result;
 
             // Initialize
             m_total = 0;
 
+            // Get a list of input #
             calcNum = Regex.Split(inpNnum, pattern);
-            //// get the list of # separate by "," and/or "\n"
-            //calcNum = inpNnum.Split( new char[] { ',', '\n'});
 
             // Initialize inputNum array
             int[] inputNum = new int[calcNum.Length];
@@ -29,8 +28,8 @@ namespace RCalculator
             // Validate user inputs
             for (int i = 0; i <= calcNum.Length - 1; i++)
             {
-                // Display the #
-                Console.WriteLine("Input number: {0}", calcNum[i]);
+                //// Display the #
+                //Console.WriteLine("Input number: {0}", calcNum[i]);
 
                 // Set to 0 when empty input, missing number or invalid number(s)
                 if (calcNum[i] == "" || !int.TryParse(calcNum[i], out result))
@@ -42,7 +41,7 @@ namespace RCalculator
                     // Get the input #
                     inputNum[i] = Convert.ToInt32(calcNum[i]);
 
-                    // Gather all negative numbers provided
+                    // Gather all negative numbers provided for later exception
                     if (inputNum[i] < 0)
                     {
                         if (invalidNum == string.Empty)
@@ -71,12 +70,14 @@ namespace RCalculator
             {
                 throw new ArgumentOutOfRangeException(invalidNum + " No negative number(s) allowed!");
             }
-
         }
+
         public int total
         {
             get { return m_total; }
         }
+        
+        // Calculator Add operation
         public void Calculator_Add (int inputNum)
         {
           m_total   = m_total + inputNum;
@@ -117,6 +118,12 @@ namespace RCalculator
             Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("//[***]\n11***22***33[***],4");
+            Console.WriteLine("Total: {0}", cc.total);
+
+            cc.Input_Num("//[*][!!][r9r]\n11r9r22*hh*33!!44");
+            Console.WriteLine("Total: {0}", cc.total);
+
+            cc.Input_Num("2,,4,rrrr,1001,6");
             Console.WriteLine("Total: {0}", cc.total);
         }
     }

@@ -35,7 +35,7 @@ namespace RCalculatorTests
         [TestMethod]
         public void Neg_num()
         {
-            rc.Input_Num("4,1000");
+            rc.Input_Num("4,-1000");
         }
 
         [TestMethod]
@@ -63,6 +63,8 @@ namespace RCalculatorTests
             rc.Input_Num("//,\n2,ff,100");
             rc.Input_Num("//[***]\n11***22***33");
             rc.Input_Num("//[***]\n11***22***33,4");
+            rc.Input_Num("//[*][!!][r9r]\n11r9r22*hh*33!!44");
+            rc.Input_Num("2,,4,rrrr,1001,6");
         }
     }
 }
