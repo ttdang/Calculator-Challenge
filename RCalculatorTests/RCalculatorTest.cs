@@ -55,5 +55,12 @@ namespace RCalculatorTests
         {
             rc.Input_Num("1,2,3,4,-5,6,7,8,-9,10,11,-12,13,14,15");
         }
+
+        [TestMethod]
+        public void custom_delimiter()
+        {
+            rc.Input_Num("//#\n2#5");
+            rc.Input_Num("//,\n2,ff,100");
+        }
     }
 }

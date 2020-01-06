@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace RCalculator
 {
@@ -12,13 +13,15 @@ namespace RCalculator
         {
             string[] calcNum;
             String invalidNum = string.Empty;
+            string pattern = @"[//#,\n]";
             int result;
 
             // Initialize
             m_total = 0;
 
-            // get the list of # separate by "," and/or "\n"
-            calcNum = inpNnum.Split( new char[] { ',', '\n'});
+            calcNum = Regex.Split(inpNnum, pattern);
+            //// get the list of # separate by "," and/or "\n"
+            //calcNum = inpNnum.Split( new char[] { ',', '\n'});
 
             // Initialize inputNum array
             int[] inputNum = new int[calcNum.Length];
@@ -83,25 +86,31 @@ namespace RCalculator
             CalculatorC cc = new CalculatorC();
 
             // Tests
-            cc.Input_Num("");
-            Console.WriteLine("Total: {0}", cc.total);
+            //cc.Input_Num("");
+            //Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num ("20");
-            Console.WriteLine("Total: {0}", cc.total);
+            //cc.Input_Num ("20");
+            //Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("4,1000");
             Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num("1,5000");
-            Console.WriteLine("Total: {0}", cc.total);
+            //cc.Input_Num("1,5000");
+            //Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num("5,yht");
-            Console.WriteLine("Total: {0}", cc.total);
+            //cc.Input_Num("5,yht");
+            //Console.WriteLine("Total: {0}", cc.total);
 
-            cc.Input_Num("1,2,3,-4,5,6,-7,8,9,10,-11,12 ");
-            Console.WriteLine("Total: {0}", cc.total);
+            //cc.Input_Num("1,2,3,-4,5,6,-7,8,9,10,-11,12 ");
+            //Console.WriteLine("Total: {0}", cc.total);
 
             cc.Input_Num("1\n2,3");
+            Console.WriteLine("Total: {0}", cc.total);
+
+            cc.Input_Num("//#\n2#5");
+            Console.WriteLine("Total: {0}", cc.total);
+
+            cc.Input_Num("//,\n2,ff,100");
             Console.WriteLine("Total: {0}", cc.total);
         }
     }
