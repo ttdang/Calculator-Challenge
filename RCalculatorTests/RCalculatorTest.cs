@@ -61,6 +61,8 @@ namespace RCalculatorTests
         {
             rc.Input_Num("//#\n2#5");
             rc.Input_Num("//,\n2,ff,100");
+            rc.Input_Num("//[***]\n11***22***33");
+            rc.Input_Num("//[***]\n11***22***33,4");
         }
     }
 }
